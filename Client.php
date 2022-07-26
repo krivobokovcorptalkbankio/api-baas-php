@@ -1006,6 +1006,21 @@ class Client
     }
 
     /**
+     * Get card token
+     *
+     * POST /api/v1/clients/{client_id}/cards/token
+     */
+    public function cardToken(
+        string $cardNumber
+    ): array {
+        $params = [
+            'card_number' => $cardNumber
+        ];
+
+        return $this->exec('POST', 'clients/{client_id}/cards/token', [], $params);
+    }
+
+    /**
      * POST /api/v1/refill/{client_id}/unregistered/card/with/form
      *
      * @param string $clientId
